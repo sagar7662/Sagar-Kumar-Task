@@ -15,11 +15,11 @@ class CoinListViewModel: ObservableObject {
     private let repository: CoinRepositoryFetcher
     private var coins: [Coin] = []
     lazy var filters: [CoinFilter] = {
-        return [CoinFilter(title: .activeCoins, type: .coin, isActive: true, isNew: nil, isSelected: false),
-                CoinFilter(title: .inactiveCoins, type: .coin, isActive: false, isNew: nil, isSelected: false),
+        return [CoinFilter(title: .activeCoins, type: nil, isActive: true, isNew: nil, isSelected: false),
+                CoinFilter(title: .inactiveCoins, type: nil, isActive: false, isNew: nil, isSelected: false),
                 CoinFilter(title: .onlyTokens, type: .token, isActive: nil, isNew: nil, isSelected: false),
                 CoinFilter(title: .onlyCoins, type: .coin, isActive: nil, isNew: nil, isSelected: false),
-                CoinFilter(title: .newCoins, type: .coin, isActive: nil, isNew: true, isSelected: false)]
+                CoinFilter(title: .newCoins, type: nil, isActive: nil, isNew: true, isSelected: false)]
     }()
     
     init(repository: CoinRepositoryFetcher) {
