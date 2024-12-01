@@ -21,6 +21,9 @@ class CoinListViewModel: ObservableObject {
                 CoinFilter(title: .onlyCoins, type: .coin, isActive: nil, isNew: nil, isSelected: false),
                 CoinFilter(title: .newCoins, type: nil, isActive: nil, isNew: true, isSelected: false)]
     }()
+    var filteredCoinsCount: Int {
+        return filteredCoins.count
+    }
     
     init(repository: CoinRepositoryFetcher) {
         self.repository = repository

@@ -52,8 +52,14 @@ class CoinListViewController: BaseViewController {
         setupTableView()
     }
     
+    private func showTitle() {
+        let coinCount = viewModel.filteredCoinsCount
+        let title = coinCount == 0 ? .coin : "\(String.coin)(\(coinCount))"
+        setLeftNavBar(with: title.uppercased())
+    }
+    
     private func setupNavigationBar() {
-        setLeftNavBar(with: .coin.uppercased())
+        showTitle()
         setNavigationRightBarButton()
         
         searchBar.delegate = self
@@ -159,6 +165,7 @@ class CoinListViewController: BaseViewController {
         let hasData = !viewModel.filteredCoins.isEmpty
         tableView.isHidden = !hasData
         hasData ? hideNoDataView() : showNoDataView()
+        showTitle()
         tableView.reloadData()
     }
     
